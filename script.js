@@ -1,5 +1,12 @@
+// variables declarations
+
+let userScore = 0;
+let computerScore = 0;
+
 console.log(getComputerChoice());
 console.log(getUserChoice());
+
+//  functions declarations
 
 function getComputerChoice(){
     switch (Math.floor(Math.random()*3)) {
