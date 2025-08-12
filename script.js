@@ -3,33 +3,49 @@ const rockString = "rock";
 const paperString = "paper";
 const scissorsString = "scissors";
 
-let userScore = 0;
-let computerScore = 0;
-
-playRound(getComputerChoice(), getUserChoice());
+playGame();
 
 //  functions declarations
 
-function playRound(computerChoice, userChoice){
-    userChoice = userChoice.toLowerCase();
-    console.log(userChoice);
-    console.log(computerChoice);
+function playGame(){
+    // variables declarations
+    let userScore = 0;
+    let computerScore = 0;
+
+    // Main
+
+    for (let i = 0; i < 5; i++) {
+        playRound(getComputerChoice(), getUserChoice());
+    }    
+    if(userScore > computerScore) {console.log(`You win! ${userScore} : ${computerScore}`);}
+    else if(userScore < computerScore) {console.log(`You lose! ${userScore} : ${computerScore}`);}
+    else {console.log(`It's a draw! ${userScore} : ${computerScore}`)}
+
+    //  functions declarations
+
+    function playRound(computerChoice, userChoice){
+        userChoice = userChoice.toLowerCase();
+        console.log(userChoice);
+        console.log(computerChoice);
 
 
-    if(userChoice === computerChoice){    // Draw
-        console.log("It's a draw, no point.");
-    } else if(     // User Lose
-        (userChoice === rockString && computerChoice === paperString) ||
-        (userChoice === paperString && computerChoice === scissorsString) ||
-        (userChoice === scissorsString && computerChoice === rockString)
-    ){
-        console.log(`You lose! ${computerChoice} beats ${userChoice}.`);
-        computerScore++;
-    } else {    // User Win
-        console.log(`You win! ${userChoice} beats ${computerChoice}.`);
-        userScore++;
+        if(userChoice === computerChoice){    // Draw
+            console.log("It's a draw, no point.");
+        } else if(     // User Lose
+            (userChoice === rockString && computerChoice === paperString) ||
+            (userChoice === paperString && computerChoice === scissorsString) ||
+            (userChoice === scissorsString && computerChoice === rockString)
+        ){
+            console.log(`You lose! ${computerChoice} beats ${userChoice}.`);
+            computerScore++;
+        } else {    // User Win
+            console.log(`You win! ${userChoice} beats ${computerChoice}.`);
+            userScore++;
+        }
     }
 }
+
+
 
 function getComputerChoice(){
     switch (Math.floor(Math.random()*3)) {
