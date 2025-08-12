@@ -1,4 +1,5 @@
 console.log(getComputerChoice());
+console.log(getUserChoice());
 
 function getComputerChoice(){
     switch (Math.floor(Math.random()*3)) {
@@ -11,4 +12,8 @@ function getComputerChoice(){
         default:
             return "Error!";
     }
+}
+
+function getUserChoice(){
+    return prompt("rock, paper or scissors ?", "rock");
 }
