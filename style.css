@@ -1,5 +1,12 @@
-.container{
+body{
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
     display: flex;
     gap: 5vw;
     justify-content: center;
